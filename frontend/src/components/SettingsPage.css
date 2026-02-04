@@ -1,0 +1,310 @@
+.settings-page {
+  padding: var(--spacing-lg);
+  max-width: 900px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.settings-header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.settings-header h1 {
+  font-size: var(--font-size-3xl);
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dim) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--spacing-sm);
+}
+
+.settings-subtitle {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-lg);
+  margin: 0;
+}
+
+.settings-message {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: var(--spacing-lg);
+  animation: slideDown 0.3s ease;
+}
+
+.settings-message.success {
+  background: rgba(0, 255, 136, 0.2);
+  border: 2px solid var(--color-success);
+  color: var(--color-success);
+}
+
+.settings-message.error {
+  background: rgba(255, 71, 87, 0.2);
+  border: 2px solid var(--color-danger);
+  color: var(--color-danger);
+}
+
+.settings-sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.settings-section {
+  background: var(--color-bg-secondary);
+  border: 2px solid var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.section-header {
+  margin-bottom: var(--spacing-xl);
+}
+
+.section-header h2 {
+  font-size: var(--font-size-2xl);
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.section-header p {
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.form-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.05em;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: var(--spacing-md);
+  background: var(--color-bg-tertiary);
+  border: 2px solid var(--color-surface);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+  font-family: var(--font-primary);
+  transition: all var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-glow);
+}
+
+.form-help {
+  margin-top: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-dim);
+}
+
+.settings-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.settings-item {
+  padding: var(--spacing-lg);
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-surface);
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+
+.toggle-label input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: relative;
+  width: 50px;
+  height: 26px;
+  background: var(--color-surface);
+  border-radius: 13px;
+  transition: background var(--transition-base);
+  flex-shrink: 0;
+}
+
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-text-dim);
+  top: 3px;
+  left: 3px;
+  transition: all var(--transition-base);
+}
+
+input[type="checkbox"]:checked + .toggle-slider {
+  background: var(--color-accent);
+}
+
+input[type="checkbox"]:checked + .toggle-slider::before {
+  transform: translateX(24px);
+  background: var(--color-bg-primary);
+}
+
+.toggle-text {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.sync-info {
+  background: var(--color-bg-tertiary);
+  border: 2px solid var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--color-surface);
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.info-value {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.info-value.online {
+  color: var(--color-success);
+}
+
+.info-value.offline {
+  color: var(--color-warning);
+}
+
+.sync-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.sync-actions .btn {
+  flex: 1;
+  min-width: 150px;
+}
+
+.about-info {
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+.about-info p {
+  margin-bottom: var(--spacing-md);
+}
+
+.about-info strong {
+  color: var(--color-text-primary);
+}
+
+.about-info ul {
+  list-style: none;
+  padding-left: var(--spacing-lg);
+  margin: var(--spacing-md) 0;
+}
+
+.about-info li {
+  position: relative;
+  padding-left: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+}
+
+.about-info li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .settings-page {
+    padding: var(--spacing-md);
+  }
+
+  .settings-header h1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .settings-subtitle {
+    font-size: var(--font-size-base);
+  }
+
+  .section-header h2 {
+    font-size: var(--font-size-xl);
+  }
+
+  .sync-actions {
+    flex-direction: column;
+  }
+
+  .sync-actions .btn {
+    width: 100%;
+  }
+}
+
+/* Animation */
+.settings-section {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

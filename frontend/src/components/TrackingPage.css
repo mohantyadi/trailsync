@@ -1,0 +1,276 @@
+.tracking-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+  padding: var(--spacing-lg);
+  gap: var(--spacing-lg);
+}
+
+.tracking-header {
+  text-align: center;
+}
+
+.tracking-header h1 {
+  font-size: var(--font-size-3xl);
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dim) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--spacing-md);
+}
+
+.permission-banner {
+  background: var(--color-warning);
+  color: var(--color-bg-primary);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.permission-banner p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.error-banner {
+  background: rgba(255, 71, 87, 0.2);
+  border: 2px solid var(--color-danger);
+  color: var(--color-danger);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  text-align: center;
+  margin-top: var(--spacing-md);
+  font-weight: 600;
+}
+
+.tracking-controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+.activity-type-selector {
+  width: 100%;
+  max-width: 600px;
+}
+
+.activity-type-selector label {
+  text-align: center;
+  display: block;
+  margin-bottom: var(--spacing-md);
+}
+
+.type-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+}
+
+.type-btn {
+  padding: var(--spacing-lg);
+  background: var(--color-bg-secondary);
+  border: 2px solid var(--color-surface);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  min-height: 80px;
+}
+
+.type-btn:hover {
+  background: var(--color-surface);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.type-btn.active {
+  border-width: 3px;
+  box-shadow: var(--shadow-lg);
+}
+
+.type-btn.active.walk {
+  border-color: var(--color-walk);
+  background: rgba(0, 255, 136, 0.1);
+}
+
+.type-btn.active.run {
+  border-color: var(--color-run);
+  background: rgba(255, 107, 157, 0.1);
+}
+
+.type-btn.active.ride {
+  border-color: var(--color-ride);
+  background: rgba(255, 179, 71, 0.1);
+}
+
+.tracking-action {
+  width: 100%;
+  max-width: 400px;
+}
+
+.tracking-btn {
+  width: 100%;
+  font-size: var(--font-size-xl);
+  position: relative;
+  min-height: 64px;
+}
+
+.pulse-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: var(--color-bg-primary);
+  border-radius: 50%;
+  margin-right: var(--spacing-sm);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.7;
+  }
+}
+
+.stats-panel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-md);
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.stat-card {
+  background: var(--color-bg-secondary);
+  border: 2px solid var(--color-accent-dim);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.stat-label {
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-sm);
+  font-weight: 600;
+}
+
+.stat-value {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-accent);
+  line-height: 1;
+}
+
+.map-container {
+  flex: 1;
+  min-height: 400px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 2px solid var(--color-surface);
+  position: relative;
+}
+
+.route-info {
+  text-align: center;
+  padding: var(--spacing-md);
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-surface);
+}
+
+.route-info p {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tracking-page {
+    padding: var(--spacing-md);
+  }
+
+  .tracking-header h1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .stats-panel {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .type-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-value {
+    font-size: var(--font-size-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Leaflet map customization */
+.leaflet-container {
+  background: var(--color-bg-tertiary);
+  font-family: var(--font-primary);
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+}
+
+.leaflet-popup-tip {
+  background: var(--color-bg-secondary);
+}
+
+.leaflet-control-zoom a {
+  background: var(--color-bg-secondary) !important;
+  color: var(--color-accent) !important;
+  border-color: var(--color-surface) !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: var(--color-surface) !important;
+}
+
+/* Touch-friendly controls */
+@media (hover: none) and (pointer: coarse) {
+  .type-btn {
+    min-height: 100px;
+    font-size: var(--font-size-xl);
+  }
+
+  .tracking-btn {
+    min-height: 72px;
+    font-size: 1.5rem;
+  }
+}

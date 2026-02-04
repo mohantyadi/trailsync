@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: trailsync-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: trailsync
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - trailsync-network
+
+  # Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: trailsync-backend
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      MONGODB_URI: mongodb://mongodb:27017/trailsync
+      API_KEY: ${API_KEY}
+      CORS_ORIGIN: http://localhost:3000
+    depends_on:
+      - mongodb
+    networks:
+      - trailsync-network
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+
+  # Frontend (for production)
+  # Uncomment if you want to run frontend in Docker too
+  # frontend:
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile
+  #   container_name: trailsync-frontend
+  #   restart: unless-stopped
+  #   ports:
+  #     - "3000:80"
+  #   depends_on:
+  #     - backend
+  #   networks:
+  #     - trailsync-network
+
+networks:
+  trailsync-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
+    driver: local
