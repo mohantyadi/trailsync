@@ -16,6 +16,7 @@ function App() {
             <Route path="/" element={<TrackingPage />} />
             <Route path="/history" element={<HistoryPage />} />
             <Route path="/settings" element={<SettingsPage />} />
+            
           </Routes>
         </main>
       </div>
