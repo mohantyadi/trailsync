@@ -1,0 +1,29 @@
+{
+  "name": "trailsync",
+  "version": "1.0.0",
+  "description": "**A full-stack, offline-first fitness tracking application for walks, runs, and rides.**",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+"scripts": {
+  "backend": "npm --prefix backend run dev",
+  "frontend": "npm --prefix frontend run dev",
+  "start": "concurrently \"npm run backend\" \"npm run frontend\""
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohantyadi/trailsync.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mohantyadi/trailsync/issues"
+  },
+  "homepage": "https://github.com/mohantyadi/trailsync#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
